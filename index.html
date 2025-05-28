@@ -11,14 +11,14 @@
         <h1 class="text-3xl font-bold mb-6 text-center">🏅 Hello, Godot! 成就牆</h1>
         <p class="mb-6 text-center">勾選你已經達成的成就吧！系統會自動幫你保存進度。</p>
 
-        <div id="achievement-list" class="grid gap-4">
+        <div id="achievement-list" class="grid gap-6 grid-cols-1 md:grid-cols-2">
             <!-- 成就項目將由 JavaScript 插入 -->
         </div>
     </div>
 
     <script>const achievements = [
             { key: "hello", title: "Hello, Godot!", desc: "第一次使用 Godot", image: "images/HelloGodot.png" },
-            { key: "upload", title: "Uploaded!", desc: "成功提交遊戲", image: "images/uploaded.png" },
+            { key: "upload", title: "Uploaded!", desc: "成功提交遊戲", image: "images/Uploaded.png" },
             { key: "demo", title: "Demo", desc: "參與期中展示", image: "images/Demo.png" },
             { key: "partner", title: "Partner", desc: "與隊友合作", image: "images/Partner.png" },
             { key: "solo", title: "Solo", desc: "全程獨立完成", image: "images/Solo.png" },
@@ -34,13 +34,13 @@
 
         achievements.forEach(({ key, title, desc, image }) => {
             const isChecked = localStorage.getItem(`achieve_${key}`) === "true";
-            const item = document.createElement("label");
-            item.className = "flex items-start bg-white shadow px-4 py-3 rounded cursor-pointer hover:bg-gray-50";
+            const item = document.createElement("div");
+            item.className = "bg-white shadow px-4 py-4 rounded text-center hover:bg-gray-50 transition";
 
             item.innerHTML = `
-            <input type="checkbox" class="mt-1 mr-3" id="${key}" ${isChecked ? "checked" : ""} />
-            <img src="${image}" alt="${title} 圖示" class="w-[320px] h-auto mr-4" />
+            <input type="checkbox" class="mb-3 w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" id="${key}" ${isChecked ? "checked" : ""} />
             <div>
+              <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2" />
               <div class="font-semibold text-lg">${title}</div>
               <div class="text-sm text-gray-600">${desc}</div>
             </div>
