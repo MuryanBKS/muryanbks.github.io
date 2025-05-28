@@ -36,7 +36,7 @@
 <body class="bg-gray-100 text-gray-800">
     <div class="max-w-3xl mx-auto py-10 px-4">
         <h1 class="text-3xl font-bold mb-6 text-center">🏅 Hello, Godot! 成就牆</h1>
-        <p class="mb-6 text-center">點擊圖片來解鎖成就！系統會自動幫你保存進度。</p>
+        <p class="mb-6 text-center">點擊格子來解鎖成就！系統會自動幫你保存進度。</p>
 
         <div id="achievement-list" class="grid gap-6 grid-cols-1 md:grid-cols-2">
             <!-- 成就項目將由 JavaScript 插入 -->
@@ -62,21 +62,21 @@
         achievements.forEach(({ key, title, desc, image }) => {
             const isChecked = localStorage.getItem(`achieve_${key}`) === "true";
             const item = document.createElement("div");
-            item.className = "achievement-card px-4 py-4 rounded text-center";
+            item.className = `achievement-card px-4 py-4 rounded text-center cursor-pointer`;
+            if (isChecked) item.classList.add("checked");
 
             item.innerHTML = `
-            <div>
-              <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale cursor-pointer ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
-              <div class="font-semibold text-lg">${title}</div>
-              <div class="text-sm text-gray-600">${desc}</div>
-            </div>
+            <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
+            <div class="font-semibold text-lg">${title}</div>
+            <div class="text-sm text-gray-600">${desc}</div>
           `;
 
             const imageEl = item.querySelector(`img[data-img-key="${key}"]`);
 
-            imageEl.addEventListener("click", () => {
-                const checked = imageEl.classList.toggle("checked");
-                localStorage.setItem(`achieve_${key}`, checked);
+            item.addEventListener("click", () => {
+                const newState = !imageEl.classList.contains("checked");
+                imageEl.classList.toggle("checked", newState);
+                localStorage.setItem(`achieve_${key}`, newState);
             });
 
             listContainer.appendChild(item);
