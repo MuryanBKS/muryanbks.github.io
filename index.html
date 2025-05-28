@@ -7,10 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe), url('images/background.png');
+            background-image: url('https://muryanbks.github.io/images/background.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-position: center;
         }
 
         .grayscale {
@@ -140,10 +141,10 @@
             item.className = `achievement-card px-4 py-4 rounded text-center cursor-pointer ${isChecked ? 'checked' : ''}`;
 
             item.innerHTML = `
-            <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
-            <div class="font-semibold text-lg">${title}</div>
-            <div class="text-sm text-gray-600">${desc}</div>
-          `;
+                <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
+                <div class="font-semibold text-lg">${title}</div>
+                <div class="text-sm text-gray-600">${desc}</div>
+              `;
 
             const imageEl = item.querySelector(`img[data-img-key="${key}"]`);
 
