@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello, Godot! 成就牆</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .grayscale {
+            filter: grayscale(100%);
+            transition: filter 0.3s, transform 0.3s;
+        }
+
+            .grayscale.checked {
+                filter: none;
+                transform: scale(1.05);
+            }
+    </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
     <div class="max-w-3xl mx-auto py-10 px-4">
@@ -40,15 +51,23 @@
             item.innerHTML = `
             <input type="checkbox" class="mb-3 w-6 h-6 text-blue-600 rounded focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" id="${key}" ${isChecked ? "checked" : ""} />
             <div>
-              <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2" />
+              <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
               <div class="font-semibold text-lg">${title}</div>
               <div class="text-sm text-gray-600">${desc}</div>
             </div>
           `;
 
             const checkbox = item.querySelector("input");
+            const imageEl = item.querySelector(`img[data-img-key="${key}"]`);
+
             checkbox.addEventListener("change", () => {
-                localStorage.setItem(`achieve_${key}`, checkbox.checked);
+                const checked = checkbox.checked;
+                localStorage.setItem(`achieve_${key}`, checked);
+                if (checked) {
+                    imageEl.classList.add("checked");
+                } else {
+                    imageEl.classList.remove("checked");
+                }
             });
 
             listContainer.appendChild(item);
