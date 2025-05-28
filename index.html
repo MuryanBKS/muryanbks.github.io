@@ -7,16 +7,68 @@
   <meta name="Generator" content="Cocoa HTML Writer">
   <meta name="CocoaVersion" content="2575.5">
   <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 17.0px Courier; color: #000000; -webkit-text-stroke: #e9e86e; background-color: #ffffff; background-color: rgba(255, 255, 255, 0)}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 17.0px Courier; -webkit-text-stroke: #e4e65c}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 17.0px Courier; -webkit-text-stroke: #e4e65c; min-height: 20.0px}
     span.s1 {font-kerning: none}
   </style>
 </head>
 <body>
 <p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;h1&gt;Hello World&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1">&lt;p&gt;I'm hosted with GitHub Pages.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="zh-Hant"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Hello, Godot! 成就牆&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body class="bg-gray-100 text-gray-800"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="max-w-3xl mx-auto py-10 px-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1 class="text-3xl font-bold mb-6 text-center"&gt;🏅 Hello, Godot! 成就牆&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p class="mb-6 text-center"&gt;勾選你已經達成的成就吧！系統會自動幫你保存進度。&lt;/p&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="achievement-list" class="grid gap-4"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;!-- 成就項目將由 JavaScript 插入 --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const achievements = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "hello", title: "Hello, Godot!", desc: "第一次使用 Godot" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "upload", title: "Uploaded!", desc: "成功提交遊戲" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "demo", title: "Demo", desc: "參與期中展示" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "partner", title: "Partner", desc: "與隊友合作" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "solo", title: "Solo", desc: "全程獨立完成" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "social", title: "Social", desc: "連續留言七天以上" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "first", title: "First Finish!", desc: "第一次完成作品" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "complete", title: "Complete", desc: "做出一款可玩遊戲" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "challenge", title: "Challenge", desc: "完成創意挑戰" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "attendance", title: "Full Attendance", desc: "每天打卡 / 留言" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>{ key: "survivor", title: "Survivor", desc: "完整參與整個 Jam" },</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>];</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const listContainer = document.getElementById("achievement-list");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>achievements.forEach(({ key, title, desc }) =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const isChecked = localStorage.getItem(`achieve_${key}`) === "true";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const item = document.createElement("label");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>item.className = "flex items-start bg-white shadow px-4 py-3 rounded cursor-pointer hover:bg-gray-50";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>item.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input type="checkbox" class="mt-1 mr-3" id="${key}" ${isChecked ? "checked" : ""} /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="font-semibold text-lg"&gt;${title}&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="text-sm text-gray-600"&gt;${desc}&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>`;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const checkbox = item.querySelector("input");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>checkbox.addEventListener("change", () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>localStorage.setItem(`achieve_${key}`, checkbox.checked);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>listContainer.appendChild(item);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/body&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/html&gt;</span></p>
 </body>
