@@ -13,7 +13,6 @@
 
             .grayscale.checked {
                 filter: none;
-                transform: scale(1.1);
             }
 
         .cursor-pointer {
@@ -24,7 +23,7 @@
             border: 2px dashed #ccc;
             background: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease, border-color 0.3s;
             position: relative;
             overflow: hidden;
         }
@@ -32,6 +31,11 @@
             .achievement-card:hover {
                 transform: translateY(-4px);
                 border-color: #60a5fa;
+            }
+
+            .achievement-card.checked {
+                transform: scale(1.05);
+                border-color: #f59e0b;
             }
 
         .pop-effect::after {
@@ -126,8 +130,7 @@
         achievements.forEach(({ key, title, desc, image }) => {
             const isChecked = localStorage.getItem(`achieve_${key}`) === "true";
             const item = document.createElement("div");
-            item.className = `achievement-card px-4 py-4 rounded text-center cursor-pointer`;
-            if (isChecked) item.classList.add("checked");
+            item.className = `achievement-card px-4 py-4 rounded text-center cursor-pointer ${isChecked ? 'checked' : ''}`;
 
             item.innerHTML = `
             <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
@@ -140,13 +143,13 @@
             item.addEventListener("click", () => {
                 const newState = !imageEl.classList.contains("checked");
                 imageEl.classList.toggle("checked", newState);
+                item.classList.toggle("checked", newState);
                 localStorage.setItem(`achieve_${key}`, newState);
 
                 if (newState) {
                     item.classList.add("pop-effect");
                     setTimeout(() => item.classList.remove("pop-effect"), 1500);
 
-                    // Confetti
                     for (let i = 0; i < 10; i++) {
                         const confetti = document.createElement("div");
                         confetti.className = "confetti";
