@@ -13,7 +13,7 @@
 
             .grayscale.checked {
                 filter: none;
-                transform: scale(1.05);
+                transform: scale(1.1) rotate(1deg);
             }
 
         .cursor-pointer {
@@ -25,12 +25,48 @@
             background: linear-gradient(to bottom right, #fdfdfd, #f3f4f6);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
         }
 
             .achievement-card:hover {
                 transform: translateY(-4px);
                 border-color: #60a5fa;
             }
+
+        .pop-effect::after {
+            content: "🎉 成就解鎖!";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #2563eb;
+            opacity: 0;
+            animation: pop 0.8s ease forwards;
+            z-index: 10;
+        }
+
+        @keyframes pop {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -77,6 +113,11 @@
                 const newState = !imageEl.classList.contains("checked");
                 imageEl.classList.toggle("checked", newState);
                 localStorage.setItem(`achieve_${key}`, newState);
+
+                if (newState) {
+                    item.classList.add("pop-effect");
+                    setTimeout(() => item.classList.remove("pop-effect"), 1000);
+                }
             });
 
             listContainer.appendChild(item);
