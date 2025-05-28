@@ -127,9 +127,7 @@
             <p class="text-center text-gray-600 inline-block bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full">點擊格子來解鎖你在活動中達成的成就！</p>
         </div>
 
-        <div id="achievement-list" class="grid gap-6 grid-cols-1 md:grid-cols-2 mt-6">
-            <!-- 成就項目將由 JavaScript 插入 -->
-        </div>
+        <div id="achievement-list" class="grid gap-6 grid-cols-1 md:grid-cols-2 mt-6"></div>
     </div>
 
     <script>const achievements = [
@@ -148,42 +146,41 @@
 
         const listContainer = document.getElementById("achievement-list");
 
-        achievements.forEach(({ key, title, desc, image }) => {
-            const isChecked = localStorage.getItem(`achieve_${key}`) === "true";
-            const item = document.createElement("div");
-            item.className = `achievement-card px-4 py-4 rounded text-center cursor-pointer ${isChecked ? 'checked' : ''}`;
+        function renderAchievements() {
+            listContainer.innerHTML = "";
+            const checked = [], unchecked = [];
 
-            item.innerHTML = `
-            <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
-            <div class="font-semibold text-lg">${title}</div>
-            <div class="text-sm text-gray-600">${desc}</div>
-          `;
+            achievements.forEach(({ key, title, desc, image }) => {
+                const isChecked = localStorage.getItem(`achieve_${key}`) === "true";
+                const item = document.createElement("div");
+                item.className = `achievement-card px-4 py-4 rounded text-center cursor-pointer ${isChecked ? 'checked' : ''}`;
 
-            const imageEl = item.querySelector(`img[data-img-key="${key}"]`);
+                item.innerHTML = `
+              <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
+              <div class="font-semibold text-lg">${title}</div>
+              <div class="text-sm text-gray-600">${desc}</div>
+            `;
 
-            item.addEventListener("click", () => {
-                const newState = !imageEl.classList.contains("checked");
-                imageEl.classList.toggle("checked", newState);
-                item.classList.toggle("checked", newState);
-                localStorage.setItem(`achieve_${key}`, newState);
+                const imageEl = item.querySelector(`img[data-img-key="${key}"]`);
 
-                if (newState) {
-                    item.classList.add("pop-effect");
-                    setTimeout(() => item.classList.remove("pop-effect"), 1500);
+                item.addEventListener("click", () => {
+                    const newState = !imageEl.classList.contains("checked");
+                    imageEl.classList.toggle("checked", newState);
+                    item.classList.toggle("checked", newState);
+                    localStorage.setItem(`achieve_${key}`, newState);
+                    renderAchievements();
+                });
 
-                    for (let i = 0; i < 10; i++) {
-                        const confetti = document.createElement("div");
-                        confetti.className = "confetti";
-                        confetti.style.left = `${Math.random() * 100}%`;
-                        confetti.style.top = `0%`;
-                        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
-                        item.appendChild(confetti);
-                        setTimeout(() => confetti.remove(), 1000);
-                    }
+                if (isChecked) {
+                    checked.push(item);
+                } else {
+                    unchecked.push(item);
                 }
             });
 
-            listContainer.appendChild(item);
-        });</script>
+            [...checked, ...unchecked].forEach(el => listContainer.appendChild(el));
+        }
+
+        renderAchievements();</script>
 </body>
 </html>
