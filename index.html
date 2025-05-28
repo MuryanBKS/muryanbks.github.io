@@ -168,6 +168,22 @@
                     imageEl.classList.toggle("checked", newState);
                     item.classList.toggle("checked", newState);
                     localStorage.setItem(`achieve_${key}`, newState);
+
+                    if (newState) {
+                        item.classList.add("pop-effect");
+                        setTimeout(() => item.classList.remove("pop-effect"), 1500);
+
+                        for (let i = 0; i < 10; i++) {
+                            const confetti = document.createElement("div");
+                            confetti.className = "confetti";
+                            confetti.style.left = `${Math.random() * 100}%`;
+                            confetti.style.top = `0%`;
+                            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                            item.appendChild(confetti);
+                            setTimeout(() => confetti.remove(), 1000);
+                        }
+                    }
+
                     renderAchievements();
                 });
 
