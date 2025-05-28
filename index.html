@@ -144,8 +144,6 @@
 
         function renderAchievements() {
             listContainer.innerHTML = "";
-            const checked = [], unchecked = [];
-
             achievements.forEach(({ key, title, desc, image }) => {
                 const isChecked = localStorage.getItem(`achieve_${key}`) === "true";
                 const item = document.createElement("div");
@@ -182,18 +180,10 @@
                             setTimeout(() => confetti.remove(), 1000);
                         }
                     }
-
-                    renderAchievements();
                 });
 
-                if (isChecked) {
-                    checked.push(item);
-                } else {
-                    unchecked.push(item);
-                }
+                listContainer.appendChild(item);
             });
-
-            [...checked, ...unchecked].forEach(el => listContainer.appendChild(el));
         }
 
         renderAchievements();</script>
