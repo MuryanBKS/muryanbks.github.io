@@ -14,6 +14,14 @@
             background-position: center;
         }
 
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 0;
+        }
+
         .grayscale {
             filter: grayscale(100%);
             transition: filter 0.3s, transform 0.3s;
@@ -34,6 +42,7 @@
             transition: transform 0.3s ease, border-color 0.3s;
             position: relative;
             overflow: hidden;
+            z-index: 1;
         }
 
             .achievement-card:hover {
@@ -109,8 +118,10 @@
         }
     </style>
 </head>
-<body class="text-gray-800">
-    <div class="max-w-3xl mx-auto py-10 px-4">
+<body class="text-gray-800 relative">
+    <div class="overlay"></div>
+
+    <div class="max-w-3xl mx-auto py-10 px-4 relative z-10">
         <h1 class="text-3xl font-bold mb-6 text-center">🏅 Hello, Godot! 成就牆</h1>
         <p class="mb-6 text-center">點擊格子來解鎖成就！系統會自動幫你保存進度。</p>
 
