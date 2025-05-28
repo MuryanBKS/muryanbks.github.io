@@ -22,7 +22,7 @@
 
         .achievement-card {
             border: 2px dashed #ccc;
-            background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe);
+            background: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease;
             position: relative;
@@ -72,6 +72,27 @@
             100% {
                 opacity: 0;
                 transform: scale(1);
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #facc15;
+            animation: fall 1s ease-out forwards;
+            z-index: 20;
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(100px) scale(0.5);
             }
         }
     </style>
@@ -124,6 +145,17 @@
                 if (newState) {
                     item.classList.add("pop-effect");
                     setTimeout(() => item.classList.remove("pop-effect"), 1500);
+
+                    // Confetti
+                    for (let i = 0; i < 10; i++) {
+                        const confetti = document.createElement("div");
+                        confetti.className = "confetti";
+                        confetti.style.left = `${Math.random() * 100}%`;
+                        confetti.style.top = `0%`;
+                        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                        item.appendChild(confetti);
+                        setTimeout(() => confetti.remove(), 1000);
+                    }
                 }
             });
 
