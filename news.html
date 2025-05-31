@@ -116,12 +116,7 @@
 </head>
 <body class="text-gray-800 relative">
     <div class="overlay"></div>
-    <nav class="bg-white shadow p-4 flex gap-6 text-lg font-medium justify-center">
-        <a href="index.html" class="text-blue-600 hover:underline">🎮 活動資訊</a>
-        <a href="news.html" class="text-blue-600 hover:underline">📰 所有新聞</a>
-        <a href="faq.html" class="text-blue-600 hover:underline">❓ 常見問答</a>
-        <a href="achievements.html" class="text-blue-600 hover:underline">🏅 成就牆</a>
-    </nav>
+
     <div class="max-w-3xl mx-auto py-10 px-4 relative z-10">
         <div class="flex flex-col items-center gap-2">
             <h1 class="text-3xl font-bold italic text-center inline-block bg-white/70 backdrop-blur-sm px-6 py-2 rounded-full whitespace-nowrap">🏅 Hello, Godot! 成就牆</h1>
@@ -155,10 +150,10 @@
                 item.className = `achievement-card px-4 py-4 rounded text-center cursor-pointer ${isChecked ? 'checked' : ''}`;
 
                 item.innerHTML = `
-                  <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
-                  <div class="font-semibold text-lg">${title}</div>
-                  <div class="text-sm text-gray-600">${desc}</div>
-                `;
+              <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
+              <div class="font-semibold text-lg">${title}</div>
+              <div class="text-sm text-gray-600">${desc}</div>
+            `;
 
                 const imageEl = item.querySelector(`img[data-img-key="${key}"]`);
 
