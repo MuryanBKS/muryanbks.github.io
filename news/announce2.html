@@ -21,17 +21,58 @@
             backdrop-filter: blur(4px);
             z-index: 0;
         }
+
+        .nav-link {
+            position: relative;
+            display: inline-block;
+            color: #1d4ed8;
+            transition: color 0.3s ease;
+        }
+
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -6px;
+                width: 0%;
+                height: 2px;
+                background-color: #f97316;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link.active {
+                pointer-events: none; /* 禁用 hover 行為 */
+            }
+
+                .nav-link.active::after {
+                    width: 100%;
+                    left: 0%;
+                    background-color: #000; /* 黑色底線 */
+                }
+
+            .nav-link:hover {
+                color: #f97316;
+            }
+
+                .nav-link:hover::after {
+                    width: 100%;
+                }
     </style>
 </head>
 <body class="text-gray-800 relative">
     <div class="overlay"></div>
 
     <!-- 導覽列 -->
-    <nav class="bg-white/80 backdrop-blur-sm p-4 flex flex-wrap gap-4 justify-center z-10 relative">
-        <a href="../index.html" class="text-blue-700 hover:underline font-semibold">🎮 活動資訊</a>
-        <a href="../news.html" class="text-blue-700 font-bold underline">📰 所有新聞</a>
-        <a href="../faq.html" class="text-blue-700 hover:underline font-semibold">❓ 常見問答</a>
-        <a href="../achievements.html" class="text-blue-700 hover:underline font-semibold">🏅 成就牆</a>
+    <nav class="bg-white/80 backdrop-blur-sm p-4 flex flex-wrap items-center justify-between z-10 relative">
+        <div class="flex-1 text-center flex justify-center gap-6 flex-wrap">
+            <a href="index.html" class="nav-link text-blue-700 font-semibold">🎮 活動資訊</a>
+            <a href="news.html" class="nav-link active text-black font-bold">📰 所有新聞</a>
+            <a href="faq.html" class="nav-link text-blue-700 font-semibold">❓常見問答</a>
+            <a href="achievements.html" class="nav-link text-blue-700 font-semibold">🏅成就牆</a>
+        </div>
+        <div class="w-12 h-12 mr-2">
+            <img src="images/logo.png" alt="Logo" class="w-full h-full object-contain" />
+        </div>
     </nav>
 
     <main class="max-w-3xl mx-auto py-10 px-4 bg-white/80 backdrop-blur-md rounded-xl mt-6 relative z-10">
