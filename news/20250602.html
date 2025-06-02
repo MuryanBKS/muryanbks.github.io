@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News 樣板頁</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-image: url('../images/background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="text-gray-800 relative">
+    <div class="overlay"></div>
+
+    <!-- 導覽列 -->
+    <nav class="bg-white/80 backdrop-blur-sm p-4 flex flex-wrap gap-4 justify-center z-10 relative">
+        <a href="../index.html" class="text-blue-700 hover:underline font-semibold">🎮 活動資訊</a>
+        <a href="../news.html" class="text-blue-700 font-bold underline">📰 所有新聞</a>
+        <a href="../faq.html" class="text-blue-700 hover:underline font-semibold">❓ 常見問答</a>
+        <a href="../achievements.html" class="text-blue-700 hover:underline font-semibold">🏅 成就牆</a>
+    </nav>
+
+    <main class="max-w-3xl mx-auto py-10 px-4 bg-white/80 backdrop-blur-md rounded-xl mt-6 relative z-10">
+        <h1 class="text-3xl font-bold mb-4 text-center italic">📢 最新消息標題</h1>
+
+        <p class="text-sm text-gray-600 text-center mb-6">發布日期：2025/06/02</p>
+
+        <p class="mb-4">
+            這是一篇範例新聞頁面。你可以在這裡撰寫詳細內容，例如活動變動公告、投稿提醒、發表會倒數等資訊。
+        </p>
+
+        <p class="mb-4">
+            支援段落分段與格式設定，讓資訊更清晰。可在 `news.html` 中新增連結導向本頁。
+        </p>
+
+        <p class="text-sm text-center text-gray-500 mt-8">← <a href="../news.html" class="underline">返回所有新聞</a></p>
+    </main>
+</body>
+</html>

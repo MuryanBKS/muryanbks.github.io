@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello, Godot! 成就牆</title>
+    <title>Hello, Godot! Game Jam 新聞</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-image: url('https://muryanbks.github.io/images/background.png');
+            background-image: url('images/background.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -21,171 +21,36 @@
             backdrop-filter: blur(4px);
             z-index: 0;
         }
-
-        .grayscale {
-            filter: grayscale(100%);
-            transition: filter 0.3s, transform 0.3s;
-        }
-
-            .grayscale.checked {
-                filter: none;
-            }
-
-        .cursor-pointer {
-            cursor: pointer;
-        }
-
-        .achievement-card {
-            border: 2px dashed #ccc;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, border-color 0.3s;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-            .achievement-card:hover {
-                transform: translateY(-4px);
-                border-color: #60a5fa;
-            }
-
-            .achievement-card.checked {
-                transform: scale(1.05);
-                border-color: #f59e0b;
-            }
-
-        .pop-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1d4ed8;
-            opacity: 0;
-            animation: pop 1.2s ease forwards;
-            z-index: 10;
-        }
-
-        @keyframes pop {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-
-            20% {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-
-            60% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(1);
-            }
-        }
-
-        .confetti {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: #facc15;
-            animation: fall 1s ease-out forwards;
-            z-index: 20;
-        }
-
-        @keyframes fall {
-            0% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-
-            100% {
-                opacity: 0;
-                transform: translateY(100px) scale(0.5);
-            }
-        }
     </style>
 </head>
 <body class="text-gray-800 relative">
     <div class="overlay"></div>
 
-    <div class="max-w-3xl mx-auto py-10 px-4 relative z-10">
-        <div class="flex flex-col items-center gap-2">
-            <h1 class="text-3xl font-bold italic text-center inline-block bg-white/70 backdrop-blur-sm px-6 py-2 rounded-full whitespace-nowrap">🏅 Hello, Godot! 成就牆</h1>
-            <p class="text-center text-gray-600 inline-block bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full">點擊格子來解鎖你在活動中達成的成就！</p>
+    <!-- 導覽列 -->
+    <nav class="bg-white/80 backdrop-blur-sm p-4 flex flex-wrap gap-4 justify-center z-10 relative">
+        <a href="index.html" class="text-blue-700 hover:underline font-semibold">🎮 活動資訊</a>
+        <a href="news.html" class="text-blue-700 font-bold underline">📰 所有新聞</a>
+        <a href="faq.html" class="text-blue-700 hover:underline font-semibold">❓ 常見問答</a>
+        <a href="achievements.html" class="text-blue-700 hover:underline font-semibold">🏅 成就牆</a>
+    </nav>
+
+    <main class="max-w-3xl mx-auto py-10 px-4 bg-white/80 backdrop-blur-md rounded-xl mt-6 relative z-10">
+        <h1 class="text-3xl font-bold mb-6 text-center italic">Hello, Godot! Game Jam 新聞公告</h1>
+
+        <div class="space-y-6">
+            <!-- 新聞卡片 -->
+            <a href="news/announce1.html" class="block p-4 rounded-xl border border-gray-300 bg-white/60 hover:bg-white transition">
+                <h2 class="text-xl font-semibold mb-1">🎉 第二屆活動正式開放報名！</h2>
+                <p class="text-sm text-gray-600">2025/06/02 — 活動介紹、報名方式與相關連結已正式公開，歡迎填表加入！</p>
+            </a>
+
+            <a href="news/announce2.html" class="block p-4 rounded-xl border border-gray-300 bg-white/60 hover:bg-white transition">
+                <h2 class="text-xl font-semibold mb-1">📢 主題與成就投稿開放中！</h2>
+                <p class="text-sm text-gray-600">2025/06/03 — 想出題給所有參加者嗎？現在就投稿你的主題與成就挑戰！</p>
+            </a>
+
+            <!-- 可以繼續新增更多 -->
         </div>
-
-        <div id="achievement-list" class="grid gap-6 grid-cols-1 md:grid-cols-2 mt-6"></div>
-    </div>
-
-    <script>const achievements = [
-            { key: "hello", title: "Hello, Godot!", desc: "第一次使用 Godot", image: "images/hello.png" },
-            { key: "upload", title: "Uploaded!", desc: "成功提交遊戲", image: "images/uploaded.png" },
-            { key: "demo", title: "Demo", desc: "參與期中展示", image: "images/demo.png" },
-            { key: "partner", title: "Partner", desc: "與隊友合作", image: "images/partner.png" },
-            { key: "solo", title: "Solo", desc: "全程獨立完成", image: "images/solo.png" },
-            { key: "social", title: "Social", desc: "連續留言七天以上", image: "images/social.png" },
-            { key: "first", title: "First Finish!", desc: "第一次完成作品", image: "images/first.png" },
-            { key: "complete", title: "Complete", desc: "做出一款可玩遊戲", image: "images/complete.png" },
-            { key: "challenge", title: "Challenge", desc: "完成創意挑戰", image: "images/challenge.png" },
-            { key: "attendance", title: "Full Attendance", desc: "每天打卡 / 留言", image: "images/attendance.png" },
-            { key: "survivor", title: "Survivor", desc: "完整參與整個 Jam", image: "images/survivor.png" },
-        ];
-
-        const listContainer = document.getElementById("achievement-list");
-
-        function renderAchievements() {
-            listContainer.innerHTML = "";
-            achievements.forEach(({ key, title, desc, image }) => {
-                const isChecked = localStorage.getItem(`achieve_${key}`) === "true";
-                const item = document.createElement("div");
-                item.className = `achievement-card px-4 py-4 rounded text-center cursor-pointer ${isChecked ? 'checked' : ''}`;
-
-                item.innerHTML = `
-              <img src="${image}" alt="${title} 圖示" class="mx-auto w-[320px] h-auto mb-2 grayscale ${isChecked ? 'checked' : ''}" data-img-key="${key}" />
-              <div class="font-semibold text-lg">${title}</div>
-              <div class="text-sm text-gray-600">${desc}</div>
-            `;
-
-                const imageEl = item.querySelector(`img[data-img-key="${key}"]`);
-
-                item.addEventListener("click", () => {
-                    const newState = !imageEl.classList.contains("checked");
-                    imageEl.classList.toggle("checked", newState);
-                    item.classList.toggle("checked", newState);
-                    localStorage.setItem(`achieve_${key}`, newState);
-
-                    if (newState) {
-                        const overlay = document.createElement("div");
-                        overlay.className = "pop-overlay";
-                        overlay.textContent = "🎉 成就解鎖!";
-                        item.appendChild(overlay);
-                        setTimeout(() => overlay.remove(), 1200);
-
-                        for (let i = 0; i < 10; i++) {
-                            const confetti = document.createElement("div");
-                            confetti.className = "confetti";
-                            confetti.style.left = `${Math.random() * 100}%`;
-                            confetti.style.top = `0%`;
-                            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
-                            item.appendChild(confetti);
-                            setTimeout(() => confetti.remove(), 1000);
-                        }
-                    }
-                });
-
-                listContainer.appendChild(item);
-            });
-        }
-
-        renderAchievements();</script>
+    </main>
 </body>
 </html>
