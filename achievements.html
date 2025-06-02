@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-image: url('images/background.png');
+            background-image: url('https://muryanbks.github.io/images/background.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -106,9 +106,9 @@
     </nav>
 
     <div class="max-w-4xl mx-auto py-10 px-4 relative z-10">
-        <div class="flex flex-col items-center gap-2">
-            <h1 class="text-3xl font-bold italic text-center inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full whitespace-nowrap border border-cyan-400 border-4 text-cyan-100 shadow-lg shadow-cyan-300">🏅Hello, Godot! 成就牆</h1>
-            <p class="text-center text-cyan-100 inline-block bg-white/10 border border-cyan-400 border-2 backdrop-blur-sm px-4 py-2 rounded-full shadow-md shadow-cyan-300">點擊格子來解鎖你在活動中達成的成就！</p>
+        <div class="flex flex-col items-center gap-4">
+            <h1 class="text-[clamp(1.5rem,6vw,6rem)] font-bold italic text-center inline-block bg-blue-300/35 backdrop-blur-sm px-12 sm:px-18 md:px-16 py-2 sm:py-3 rounded-full whitespace-nowrap text-cyan-100 shadow-md shadow-black/50">🏅Hello, Godot! 成就牆</h1>
+            <p class="text-center italic text-cyan-100 inline-block bg-blue-400/30 backdrop-blur-sm px-4 py-2 rounded-full shadow-md shadow-black/50">點擊格子來解鎖你在活動中達成的成就！</p>
         </div>
 
         <div id="achievement-list" class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center place-items-center mt-6"></div>
@@ -138,9 +138,9 @@
                 item.className = `achievement-card text-center cursor-pointer ${isChecked ? 'checked' : ''}`;
 
                 item.innerHTML = `
-                                <div class="font-semibold text-lg mb-1">${title}</div>
-                                <div class="text-sm">${desc}</div>
-                            `;
+                                    <div class="font-semibold text-lg mb-1">${title}</div>
+                                    <div class="text-sm">${desc}</div>
+                                `;
 
                 item.addEventListener("click", () => {
                     const newState = !item.classList.contains("checked");
