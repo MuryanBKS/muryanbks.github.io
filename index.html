@@ -65,11 +65,6 @@
             <a href="achievements.html" class="nav-link nav-link-bordered text-white font-semibold">成就牆</a>
         </div>
         <div class="flex items-center gap-4">
-            <div id="countdown"
-                 class="nav-link-bordered text-white text-[clamp(0.75rem,1.5vw,1.1rem)] font-semibold border border-blue-900/40 rounded px-3 py-1 bg-white/30 shadow shadow-black/30 w-[24ch] text-center flex justify-between items-center">
-                <span class="whitespace-nowrap">活動倒數</span>
-                <span id="countdown-time" class="font-mono text-right">00 天 00 時 00 分</span>
-            </div>
             <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank" class="nav-link-bordered border border-blue-900/40 bg-white/30 hover:bg-yellow-400 text-[clamp(1rem,2.5vw,1.5rem)] text-white font-bold py-2 px-4 rounded shadow-sm shadow-black/40 transition">
                 立即報名
             </a>
@@ -81,7 +76,11 @@
 
     <main class="max-w-3xl mx-auto py-10 px-4 bg-white/80 backdrop-blur-md rounded-xl mt-6 relative z-10">
         <h1 class="text-3xl font-bold mb-6 text-center italic">Hello, Godot! Game Jam 第二屆即將開跑！</h1>
-
+        <div id="countdown"
+             class="nav-link-bordered text-white text-[clamp(1rem,2.5vw,1.5rem)] font-bold border border-blue-900/40 rounded px-3 py-1 bg-white/30 shadow shadow-black/30 w-[32ch] text-center flex justify-between items-center">
+            <span class="whitespace-nowrap">活動倒數</span>
+            <span id="countdown-time" class="font-mono text-right">00 天 00 時 00 分 00 秒</span>
+        </div>
         <p class="mb-4">想體驗親手做出一款遊戲的過程嗎？想在一個月內完成專案，並找到志同道合的夥伴一起交流與成長？<br>無論你是剛入門的初學者，還是經驗豐富的開發者，只要對 Godot 有興趣，都歡迎加入挑戰。</p>
 
         <picture>
@@ -142,9 +141,10 @@
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
             const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
 
             document.getElementById('countdown-time').innerText =
-                `${days} 天 ${hours} 時 ${minutes} 分`;
+                `${days} 天 ${hours} 時 ${minutes} 分 ${seconds} 秒`;
         }
 
         updateCountdown();
