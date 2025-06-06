@@ -65,6 +65,7 @@
             <a href="achievements.html" class="nav-link nav-link-bordered text-white font-semibold">成就牆</a>
         </div>
         <div class="flex items-center gap-4">
+            <div id="countdown" class="text-white text-sm font-mono border border-yellow-400 rounded px-3 py-1 bg-yellow-500/30 shadow shadow-black/30"></div>
             <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank" class="nav-link-bordered bg-white/30 hover:bg-yellow-400 text-[clamp(1rem,2.5vw,1.5rem)] text-white font-bold py-2 px-4 rounded shadow-sm shadow-black/40 transition">
                 立即報名
             </a>
@@ -123,5 +124,28 @@
             <li><strong>8/03（日）14:00</strong> — 成果發表（公開作品與開放投票）</li>
         </ul>
     </main>
+
+    <script>function updateCountdown() {
+            const targetDate = new Date('2025-07-04T20:30:00+08:00');
+            const now = new Date();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').innerText = '活動開始了！';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / 1000 / 60) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('countdown').innerText =
+                `${days} 天 ${hours} 時 ${minutes} 分 ${seconds} 秒`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
