@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>上一屆成果展示 | Hello, Godot! Game Jam</title>
+    <title>2024 成果展示 | Hello, Godot! Game Jam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -17,14 +17,63 @@
         .overlay {
             position: fixed;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0);
             backdrop-filter: blur(4px);
             z-index: 0;
         }
+
+        .nav-link {
+            position: relative;
+            display: inline-block;
+            color: #1d4ed8;
+            transition: color 0.3s ease;
+        }
+
+            .nav-link::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -6px;
+                width: 0%;
+                height: 2px;
+                background-color: #61ffb0;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover {
+                color: #ffffff;
+            }
+
+                .nav-link:hover::after {
+                    width: 100%;
+                }
+
+        .nav-link-bordered {
+            text-shadow: -1px -1px 0 #1c1d1f, 1px -1px 0 #1c1d1f, -1px 1px 0 #1c1d1f, 1px 1px 0 #1c1d1f;
+        }
     </style>
 </head>
-<body class="text-white relative">
+<body class="text-gray-800 relative">
     <div class="overlay"></div>
+
+    <!-- 導覽列 -->
+    <nav class="bg-[#065596]/40 backdrop-blur-sm border border-white/20 shadow-md shadow-black/20 text-white p-4 flex flex-wrap items-center justify-between z-10 relative">
+        <div class="flex-1 text-center flex justify-center gap-10 flex-wrap text-[clamp(1rem,2.5vw,1.5rem)]">
+            <a href="index.html" class="nav-link nav-link-bordered text-white font-semibold">活動資訊</a>
+            <a href="news.html" class="nav-link nav-link-bordered text-white font-semibold">所有新聞</a>
+            <a href="faq.html" class="nav-link nav-link-bordered text-white font-semibold">常見問答</a>
+            <a href="achievements.html" class="nav-link nav-link-bordered text-white font-semibold">成就牆</a>
+            <a href="archives.html" class="nav-link nav-link-bordered text-white font-semibold">歷屆回顧</a>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank" class="nav-link-bordered bg-white/30 hover:bg-yellow-400 text-[clamp(1rem,2.5vw,1.5rem)] text-white font-bold py-2 px-4 rounded shadow-sm shadow-black/40 transition">
+                立即報名
+            </a>
+            <a href="https://discord.com/invite/kpZ5G9HeYT" target="_blank" class="w-12 h-12 block">
+                <img src="images/logo.png" alt="Logo" class="w-full h-full object-contain" />
+            </a>
+        </div>
+    </nav>
 
     <main class="max-w-5xl mx-auto py-12 px-4 relative z-10">
         <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full shadow shadow-black/30">🎮 2024 作品展示</h1>
@@ -39,6 +88,13 @@
             </div>
 
             <!-- 可依序加入更多作品卡 -->
+
+            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-white/20">
+                <h2 class="text-xl font-semibold mb-2">作品名稱</h2>
+                <p class="text-sm mb-2">作者 / 團隊名</p>
+                <p class="text-sm mb-4">這是一段簡短的作品介紹。可以描述遊戲玩法、特色或製作過程。</p>
+                <a href="#" target="_blank" class="text-blue-300 underline">前往作品連結</a>
+            </div>
         </div>
     </main>
 </body>
