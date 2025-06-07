@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello, Godot! 成就牆</title>
+    <title>上一屆成果展示 | Hello, Godot! Game Jam</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -12,148 +12,34 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .overlay {
             position: fixed;
             inset: 0;
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(4px);
             z-index: 0;
         }
-
-        .achievement-card {
-            width: 230px;
-            height: 90px;
-            padding: 1rem;
-            border-radius: 1.75rem;
-            border: 3px solid #24769c;
-            background: linear-gradient(to bottom right, #0f172a, #1e293b);
-            color: #e2e8f0;
-            box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
-            transition: transform 0.3s ease, border-color 0.3s, background-color 0.3s;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-            .achievement-card:hover {
-                transform: translateY(-4px);
-                border-style: solid;
-                border-color: #38bdf8;
-                box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-            }
-
-            .achievement-card.checked {
-                border: 3px solid #4ade80;
-                border-color: #facc15;
-                background: linear-gradient(to bottom right, #1e3a8a, #2563eb);
-                color: #fff;
-                box-shadow: 0 0 20px #ffffff;
-            }
-
-        .nav-link {
-            position: relative;
-            display: inline-block;
-            color: #1d4ed8;
-            transition: color 0.3s ease;
-        }
-
-            .nav-link::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: -6px;
-                width: 0%;
-                height: 2px;
-                background-color: #61ffb0;
-                transition: width 0.3s ease;
-            }
-
-            .nav-link:hover {
-                color: #ffffff;
-            }
-
-                .nav-link:hover::after {
-                    width: 100%;
-                }
-
-        .nav-link-bordered {
-            text-shadow: -1px -1px 0 #1c1d1f, 1px -1px 0 #1c1d1f, -1px 1px 0 #1c1d1f, 1px 1px 0 #1c1d1f;
-        }
     </style>
 </head>
-<body class="text-gray-200 relative">
+<body class="text-white relative">
     <div class="overlay"></div>
 
-    <!-- 導覽列 -->
-    <nav class="bg-[#065596]/40 backdrop-blur-sm border border-white/20 shadow-md shadow-black/20 text-white p-4 flex flex-wrap items-center justify-between z-10 relative">
-        <div class="flex-1 text-center flex justify-center gap-10 flex-wrap text-[clamp(1rem,2.5vw,1.5rem)]">
-            <a href="index.html" class="nav-link nav-link-bordered text-white font-semibold">活動資訊</a>
-            <a href="news.html" class="nav-link nav-link-bordered text-white font-semibold">所有新聞</a>
-            <a href="faq.html" class="nav-link nav-link-bordered text-white font-semibold">常見問答</a>
-            <a href="achievements.html" class="nav-link nav-link-bordered text-white font-semibold">成就牆</a>
+    <main class="max-w-5xl mx-auto py-12 px-4 relative z-10">
+        <h1 class="text-3xl md:text-4xl font-bold text-center mb-8 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full shadow shadow-black/30">🎮 2024 作品展示</h1>
+
+        <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- 以下為作品卡片範例，可重複新增 -->
+            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-white/20">
+                <h2 class="text-xl font-semibold mb-2">作品名稱</h2>
+                <p class="text-sm mb-2">作者 / 團隊名</p>
+                <p class="text-sm mb-4">這是一段簡短的作品介紹。可以描述遊戲玩法、特色或製作過程。</p>
+                <a href="#" target="_blank" class="text-blue-300 underline">前往作品連結</a>
+            </div>
+
+            <!-- 可依序加入更多作品卡 -->
         </div>
-        <div class="flex items-center gap-4">
-            <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank" class="nav-link-bordered bg-white/30 hover:bg-yellow-400 text-[clamp(1rem,2.5vw,1.5rem)] text-white font-bold py-2 px-4 rounded shadow-sm shadow-black/40 transition">
-                立即報名
-            </a>
-            <a href="https://discord.com/invite/kpZ5G9HeYT" target="_blank" class="w-12 h-12 block">
-                <img src="images/logo.png" alt="Logo" class="w-full h-full object-contain" />
-            </a>
-        </div>
-    </nav>
-
-    <div class="max-w-4xl mx-auto py-10 px-4 relative z-10">
-        <div class="flex flex-col items-center gap-4">
-            <h1 class="text-[clamp(1.5rem,6vw,3rem)] font-bold italic text-center inline-block bg-blue-300/35 backdrop-blur-sm px-12 sm:px-18 md:px-16 py-2 sm:py-3 rounded-full whitespace-nowrap text-cyan-100 shadow-md shadow-black/50">🏅Hello, Godot! 成就牆</h1>
-            <p class="text-center italic text-cyan-100 inline-block bg-blue-400/30 backdrop-blur-sm px-4 py-2 rounded-full shadow-md shadow-black/50">你在這次活動中完成哪些成就呢？</p>
-        </div>
-
-        <div id="achievement-list" class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center place-items-center mt-6"></div>
-    </div>
-
-    <script>const achievements = [
-            { key: "post", title: "Post!", desc: "投稿主題、投稿成就" },
-            { key: "hello", title: "Hello, Godot!", desc: "第一次使用 Godot" },
-            { key: "upload", title: "Uploaded!", desc: "成功提交遊戲" },
-            { key: "demo", title: "Demo!", desc: "參與期中展示" },
-            { key: "partner", title: "Partner!", desc: "與隊友合作" },
-            { key: "solo", title: "Solo!", desc: "全程獨立完成" },
-            { key: "social", title: "Social!", desc: "連續留言七天以上" },
-            { key: "first", title: "First Finish!", desc: "第一次完成作品" },
-            { key: "complete", title: "Complete!", desc: "做出一款可玩遊戲" },
-            { key: "challenge", title: "Challenge!", desc: "完成創意挑戰" },
-            { key: "attendance", title: "Full Attendance!", desc: "每天打卡 / 留言" },
-            { key: "survivor", title: "Survivor!", desc: "完整參與整個 Jam" },
-        ];
-
-        const listContainer = document.getElementById("achievement-list");
-
-        function renderAchievements() {
-            listContainer.innerHTML = "";
-            achievements.forEach(({ key, title, desc }) => {
-                const isChecked = localStorage.getItem(`achieve_${key}`) === "true";
-                const item = document.createElement("div");
-                item.className = `achievement-card text-center cursor-pointer ${isChecked ? 'checked' : ''}`;
-
-                item.innerHTML = `
-                                    <div class="font-semibold text-lg mb-1">${title}</div>
-                                    <div class="text-sm">${desc}</div>
-                                `;
-
-                item.addEventListener("click", () => {
-                    const newState = !item.classList.contains("checked");
-                    item.classList.toggle("checked", newState);
-                    localStorage.setItem(`achieve_${key}`, newState);
-                    console.log(`成就 [${title}] 解鎖狀態：`, newState);
-                });
-
-                listContainer.appendChild(item);
-            });
-        }
-
-        renderAchievements();</script>
+    </main>
 </body>
 </html>
