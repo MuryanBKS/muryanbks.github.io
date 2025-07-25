@@ -135,8 +135,8 @@
             const diff = targetDate - now;
 
             if (diff <= 0) {
-                document.getElementById('countdown-box').innerHTML =
-                    '<span class="text-xl font-bold text-yellow-300">Everything is a Weapon</span>';
+                document.getElementById('countdown-label').style.display = 'none';
+                document.getElementById('countdown-time').innerText = 'Everything is a Weapon';
                 return;
             }
 
