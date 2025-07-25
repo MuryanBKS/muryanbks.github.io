@@ -135,7 +135,8 @@
             const diff = targetDate - now;
 
             if (diff <= 0) {
-                document.getElementById('countdown-time').innerText = 'Everything is a Weapon';
+                document.getElementById('countdown-box').innerHTML =
+                    '<span class="text-xl font-bold text-yellow-300">Everything is a Weapon</span>';
                 return;
             }
 
@@ -146,7 +147,7 @@
 
             document.getElementById('countdown-time').innerText =
                 `${days} 天 ${hours} 時 ${minutes} 分 ${seconds} 秒`;
-        }
+            }
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
