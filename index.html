@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,35 +30,37 @@
             transition: color 0.3s ease;
         }
 
-            .nav-link::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: -6px;
-                width: 0%;
-                height: 2px;
-                background-color: #61ffb0;
-                transition: width 0.3s ease;
-            }
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background-color: #61ffb0;
+            transition: width 0.3s ease;
+        }
 
-            .nav-link:hover {
-                color: #ffffff;
-            }
+        .nav-link:hover {
+            color: #ffffff;
+        }
 
-                .nav-link:hover::after {
-                    width: 100%;
-                }
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
         .nav-link-bordered {
             text-shadow: -1px -1px 0 #1c1d1f, 1px -1px 0 #1c1d1f, -1px 1px 0 #1c1d1f, 1px 1px 0 #1c1d1f;
         }
     </style>
 </head>
+
 <body class="text-gray-800 relative">
     <div class="overlay"></div>
 
     <!-- 導覽列 -->
-    <nav class="bg-[#065596]/40 backdrop-blur-sm border border-white/20 shadow-md shadow-black/20 text-white p-4 flex flex-wrap items-center justify-between z-10 relative">
+    <nav
+        class="bg-[#065596]/40 backdrop-blur-sm border border-white/20 shadow-md shadow-black/20 text-white p-4 flex flex-wrap items-center justify-between z-10 relative">
         <div class="flex-1 text-center flex justify-center gap-10 flex-wrap text-[clamp(1rem,2.5vw,1.5rem)]">
             <a href="index.html" class="nav-link nav-link-bordered text-white font-semibold">活動資訊</a>
             <a href="news.html" class="nav-link nav-link-bordered text-white font-semibold">所有新聞</a>
@@ -65,7 +68,8 @@
             <a href="archives.html" class="nav-link nav-link-bordered text-white font-semibold">歷屆回顧</a>
         </div>
         <div class="flex items-center gap-4">
-            <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank" class="nav-link-bordered border border-blue-900/40 bg-white/30 hover:bg-yellow-400 text-[clamp(1rem,2.5vw,1.5rem)] text-white font-bold py-2 px-4 rounded shadow-sm shadow-black/40 transition">
+            <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank"
+                class="nav-link-bordered border border-blue-900/40 bg-white/30 hover:bg-yellow-400 text-[clamp(1rem,2.5vw,1.5rem)] text-white font-bold py-2 px-4 rounded shadow-sm shadow-black/40 transition">
                 立即報名
             </a>
             <a href="https://discord.com/invite/kpZ5G9HeYT" target="_blank" class="w-12 h-12 block">
@@ -77,28 +81,29 @@
     <main class="max-w-3xl mx-auto py-10 px-4 bg-white/80 backdrop-blur-md rounded-xl mt-6 relative z-10">
         <h1 class="text-3xl font-bold mb-6 text-center italic">Hello, Godot! Game Jam 第二屆即將開跑！</h1>
         <div id="countdown"
-             class="mx-auto nav-link-bordered text-white text-[clamp(1rem,3vw,1.75rem)] font-bold border border-blue-900/40 rounded px-3 py-1 bg-white/30 shadow shadow-black/30 w-full max-w-xs sm:max-w-md lg:max-w-lg text-center flex justify-center items-center gap-4">
+            class="mx-auto nav-link-bordered text-white text-[clamp(1rem,3vw,1.75rem)] font-bold border border-blue-900/40 rounded px-3 py-1 bg-white/30 shadow shadow-black/30 w-full max-w-xs sm:max-w-md lg:max-w-lg text-center flex justify-center items-center gap-4">
             <span class="whitespace-nowrap">活動倒數</span>
             <span id="countdown-time" class="whitespace-nowrap font-mono text-right">00 天 00 時 00 分 00 秒</span>
         </div>
-        <p class="mb-4">想體驗親手做出一款遊戲的過程嗎？想在一個月內完成專案，並找到志同道合的夥伴一起交流與成長？<br>無論你是剛入門的初學者，還是經驗豐富的開發者，只要對 Godot 有興趣，都歡迎加入挑戰。</p>
+        <p class="mb-4">想體驗親手做出一款遊戲的過程嗎？想在一個月內完成專案，並找到志同道合的夥伴一起交流與成長？<br>無論你是剛入門的初學者，還是經驗豐富的開發者，只要對 Godot 有興趣，都歡迎加入挑戰。
+        </p>
 
         <picture>
-            <source srcset="images/hello-godot-promo.webp" type="image/webp" />
-            <img src="images/hello-godot-promo.webp"
-                 alt="Hello, Godot! 活動宣傳圖"
-                 class="rounded-xl shadow-md mb-6 w-full max-w-full h-auto"
-                 loading="lazy" />
+            <source srcset="images/KeyVisual.webp" type="image/webp" />
+            <img src="images/KeyVisual.webp" alt="Hello, Godot! 活動宣傳圖"
+                class="rounded-xl shadow-md mb-6 w-full max-w-full h-auto" loading="lazy" />
         </picture>
 
         <h2 class="text-2xl font-semibold mt-6 mb-2">什麼是 Hello, Godot! Game Jam？</h2>
         <p class="mb-4">這是一場限定使用 Godot 引擎製作遊戲的挑戰。你可以選擇單人參賽，也可以組隊完成。在這段活動期間內，參與者以指定主題為基礎，設計並完成一款小型遊戲。</p>
-        <p class="mb-4">Game Jam 不只是限時開發挑戰，更是一個讓你實踐創意、分享成果、認識夥伴的平台。你可以透過本活動嘗試不同的開發流程、測試新的想法，甚至跨出舒適圈挑戰未曾涉略的技術。完成後，作品可以上傳至 itch.io 開放給大家試玩。</p>
+        <p class="mb-4">Game Jam 不只是限時開發挑戰，更是一個讓你實踐創意、分享成果、認識夥伴的平台。你可以透過本活動嘗試不同的開發流程、測試新的想法，甚至跨出舒適圈挑戰未曾涉略的技術。完成後，作品可以上傳至
+            itch.io 開放給大家試玩。</p>
         <p class="mb-4">此外，在 Discord 群組也設有專區供大家分享開發歷程、技術問題與心得感想，讓開發不再是孤軍奮戰，而是一場有交流、有支持的旅程。</p>
 
         <h2 class="text-2xl font-semibold mt-6 mb-2">加入社群，一起交流！</h2>
         <p class="mb-2">📢 歡迎加入官方 Discord 社群：</p>
-        <p class="mb-4"><a href="https://discord.com/invite/kpZ5G9HeYT" target="_blank" class="text-blue-700 underline">https://discord.com/invite/kpZ5G9HeYT</a></p>
+        <p class="mb-4"><a href="https://discord.com/invite/kpZ5G9HeYT" target="_blank"
+                class="text-blue-700 underline">https://discord.com/invite/kpZ5G9HeYT</a></p>
 
         <ul class="list-disc list-inside mb-6">
             <li>追蹤活動最新消息與重要提醒</li>
@@ -109,14 +114,16 @@
         <h2 class="text-2xl font-semibold mt-6 mb-2">立即報名參加！</h2>
         <p class="mb-4">
             📋 現在就填寫報名表單參加活動：<br>
-            <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank" class="text-blue-700 underline">https://forms.gle/ajPtUdmPTAqC6NxM6</a>
+            <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank"
+                class="text-blue-700 underline">https://forms.gle/ajPtUdmPTAqC6NxM6</a>
         </p>
 
         <h2 class="text-2xl font-semibold mt-6 mb-2">投稿募集進行中！</h2>
         <p class="mb-4">📬 有想挑戰的遊戲成就？或是腦中浮現了精彩的主題構想？我們正在蒐集社群的創意，讓這屆活動更具啟發性與互動性！</p>
         <p class="mb-4">
             👉 投稿表單：<br>
-            <a href="https://forms.gle/RZuZqGdRBWdq46hBA" target="_blank" class="text-blue-700 underline">https://forms.gle/RZuZqGdRBWdq46hBA</a>
+            <a href="https://forms.gle/RZuZqGdRBWdq46hBA" target="_blank"
+                class="text-blue-700 underline">https://forms.gle/RZuZqGdRBWdq46hBA</a>
         </p>
 
         <h2 class="text-2xl font-semibold mt-6 mb-2">📅 活動時程表</h2>
@@ -129,7 +136,7 @@
     </main>
 
     <script>function updateCountdown() {
-            const targetDate = new Date('2025-07-04T20:30:00+08:00');
+            const targetDate = new Date('2026-03-21T09:00:00+08:00');
             const now = new Date();
             const diff = targetDate - now;
 
@@ -146,10 +153,11 @@
 
             document.getElementById('countdown-time').innerText =
                 `${days} 天 ${hours} 時 ${minutes} 分 ${seconds} 秒`;
-            }
+        }
 
         updateCountdown();
         setInterval(updateCountdown, 1000);
     </script>
 </body>
+
 </html>
