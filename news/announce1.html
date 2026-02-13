@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,35 +30,37 @@
             transition: color 0.3s ease;
         }
 
-            .nav-link::after {
-                content: "";
-                position: absolute;
-                left: 0;
-                bottom: -6px;
-                width: 0%;
-                height: 2px;
-                background-color: #61ffb0;
-                transition: width 0.3s ease;
-            }
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background-color: #61ffb0;
+            transition: width 0.3s ease;
+        }
 
-            .nav-link:hover {
-                color: #ffffff;
-            }
+        .nav-link:hover {
+            color: #ffffff;
+        }
 
-                .nav-link:hover::after {
-                    width: 100%;
-                }
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
         .nav-link-bordered {
             text-shadow: -1px -1px 0 #1c1d1f, 1px -1px 0 #1c1d1f, -1px 1px 0 #1c1d1f, 1px 1px 0 #1c1d1f;
         }
     </style>
 </head>
+
 <body class="text-gray-800 relative">
     <div class="overlay"></div>
 
     <!-- 導覽列 -->
-    <nav class="bg-[#065596]/40 backdrop-blur-sm border border-white/20 shadow-md shadow-black/20 text-white p-4 flex flex-wrap items-center justify-between z-10 relative">
+    <nav
+        class="bg-[#065596]/40 backdrop-blur-sm border border-white/20 shadow-md shadow-black/20 text-white p-4 flex flex-wrap items-center justify-between z-10 relative">
         <div class="flex-1 text-center flex justify-center gap-10 flex-wrap text-[clamp(1rem,2.5vw,1.5rem)]">
             <a href="../index.html" class="nav-link nav-link-bordered text-white font-semibold">活動資訊</a>
             <a href="../news.html" class="nav-link nav-link-bordered text-white font-semibold">所有新聞</a>
@@ -66,7 +69,8 @@
             <a href="../archives.html" class="nav-link nav-link-bordered text-white font-semibold">歷屆回顧</a>
         </div>
         <div class="flex items-center gap-4">
-            <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank" class="nav-link-bordered bg-white/30 hover:bg-yellow-400 text-[clamp(1rem,2.5vw,1.5rem)] text-white font-bold py-2 px-4 rounded shadow-sm shadow-black/40 transition">
+            <a href="https://godotpioneersguild.kktix.cc/events/hellogodot2026" target="_blank"
+                class="nav-link-bordered bg-white/30 hover:bg-yellow-400 text-[clamp(1rem,2.5vw,1.5rem)] text-white font-bold py-2 px-4 rounded shadow-sm shadow-black/40 transition">
                 立即報名
             </a>
             <a href="https://discord.com/invite/kpZ5G9HeYT" target="_blank" class="w-12 h-12 block">
@@ -75,25 +79,31 @@
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto py-10 px-4 bg-white/80 backdrop-blur-md rounded-xl mt-6 relative z-10 shadow-lg shadow-black/40">
+    <main
+        class="max-w-3xl mx-auto py-10 px-4 bg-white/80 backdrop-blur-md rounded-xl mt-6 relative z-10 shadow-lg shadow-black/40">
         <h1 class="text-3xl font-bold mb-2">🎉 第二屆活動正式開放報名！</h1>
         <p class="text-sm text-gray-500 mb-6">發布日期：2025/06/02</p>
 
-        <p class="mb-4">Hello, Godot! Game Jam 第二屆正式啟動囉！這次活動將從 <strong>7/04 公布主題</strong> 開始，直到 <strong>8/03 成果發表</strong>，共計一個月的時間，讓你有更充裕的空間構思並完成一款屬於自己的遊戲。</p>
+        <p class="mb-4">Hello, Godot! Game Jam 第二屆正式啟動囉！這次活動將從 <strong>7/04 公布主題</strong> 開始，直到 <strong>8/03
+                成果發表</strong>，共計一個月的時間，讓你有更充裕的空間構思並完成一款屬於自己的遊戲。</p>
 
         <p class="mb-4">本次活動以 Godot 為核心，採線上參與方式進行，無論你是獨立創作還是團隊成員，都歡迎加入。可以挑戰自我、結交夥伴、展示成果。</p>
 
         <h2 class="text-2xl font-semibold mt-6 mb-2">📋 立即報名參加</h2>
         <p class="mb-4">報名表單現已開放填寫，歡迎所有對 Godot 開發有興趣的創作者填表加入：</p>
         <p class="mb-4">
-            <a href="https://forms.gle/ajPtUdmPTAqC6NxM6" target="_blank" class="text-blue-700 underline">https://forms.gle/ajPtUdmPTAqC6NxM6</a>
+            <a href="https://godotpioneersguild.kktix.cc/events/hellogodot2026" target="_blank"
+                class="text-blue-700 underline">https://godotpioneersguild.kktix.cc/events/hellogodot2026</a>
         </p>
 
         <p class="text-center mt-8 text-sm text-gray-600">有任何疑問，也歡迎加入 Discord 社群討論</p>
 
         <div class="text-center mt-6">
-            <a href="../news.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition">← 返回新聞列表</a>
+            <a href="../news.html"
+                class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition">←
+                返回新聞列表</a>
         </div>
     </main>
 </body>
+
 </html>
